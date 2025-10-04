@@ -1,18 +1,18 @@
-// src/components/UI/InfoPanel.jsx (VERSIÓN FINAL Y COMPLETA)
+// src/components/UI/InfoPanel.jsx
 
 import React, { useState } from 'react';
 import './InfoPanel.css';
 
+// PASO 1: Importa la imagen aquí
+import gpsIcon from '../../assets/gps.png';
+
 const InfoPanel = ({ sharkInfo }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // 1. LÓGICA DE COLAPSO (que faltaba)
   const togglePanel = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  // 2. MANEJO DEL ESTADO DE CARGA (que faltaba)
-  // Si no hay datos, mostramos un panel de carga y detenemos la ejecución aquí.
   if (!sharkInfo) {
     return (
       <div className="info-panel">
@@ -23,11 +23,13 @@ const InfoPanel = ({ sharkInfo }) => {
     );
   }
 
-  // 3. JSX COMPLETO (que faltaba)
-  // Incluye la cabecera clickeable y el contenido dinámico.
   return (
     <div className={`info-panel ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="panel-header" onClick={togglePanel}>
+        
+        {/* PASO 2: Usa la variable importada aquí */}
+        <img src={gpsIcon} alt="rastreo" />
+
         <h2>RASTREO ACTIVO</h2>
         <div className="toggle-indicator">
           {isCollapsed ? '+' : '−'}
