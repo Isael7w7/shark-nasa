@@ -1,11 +1,14 @@
-// src/App.jsx
+// src/App.jsx (MODIFICADO)
 
 import React from 'react';
-import TrackerPage from './pages/TrackerPage.jsx';
+import MainLayout from './layouts/MainLayout';
+import TrackerPage from './pages/TrackerPage';
 
 function App() {
   return (
-    <TrackerPage />
+    <MainLayout>
+      <TrackerPage />
+    </MainLayout>
   );
 }
 

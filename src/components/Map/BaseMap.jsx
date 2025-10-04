@@ -11,7 +11,7 @@ const BaseMap = ({ center, zoom, children }) => {
     <MapContainer
       center={center}
       zoom={zoom}
-      style={{ height: '100vh', width: '100vw' }}
+      style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

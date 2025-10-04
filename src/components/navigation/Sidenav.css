@@ -1,0 +1,48 @@
+/* src/components/navigation/Sidenav.css */
+
+.sidenav {
+  width: 280px;
+  background-color: #162447;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1f4068;
+}
+
+.sidenav-header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #1f4068;
+}
+
+.sidenav-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #61dafb;
+}
+
+.sidenav-links {
+  list-style-type: none;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.sidenav-links li a {
+  display: block;
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 15px 30px;
+  transition: background-color 0.2s, border-left 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.sidenav-links li a:hover {
+  background-color: #1f4068;
+  border-left: 4px solid #61dafb;
+}
+
+.sidenav-links li a.active {
+  background-color: #1b2e5a;
+  border-left: 4px solid #61dafb;
+  font-weight: bold;
+}
