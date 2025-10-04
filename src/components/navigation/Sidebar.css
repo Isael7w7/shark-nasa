@@ -1,0 +1,14 @@
+/* src/components/navigation/Sidebar.css */
+
+.sidebar {
+  width: 320px;
+  /* w-80 */
+  border-right: 1px solid var(--border);
+  background-color: var(--card);
+  overflow-y: auto;
+}
+
+.sidebar-content {
+  padding: 1.5rem;
+  /* p-6 */
+}

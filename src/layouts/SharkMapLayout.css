@@ -1,0 +1,41 @@
+/* src/layouts/SharkMapLayout.css */
+
+.shark-map-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--background);
+}
+
+.main-content-area {
+  display: flex;
+  flex: 1;
+  /* Ocupa el resto del espacio vertical */
+  overflow: hidden;
+  /* Evita que el contenido se desborde */
+}
+
+.map-container {
+  flex: 1;
+  /* Ocupa el resto del espacio horizontal */
+  position: relative;
+}
+
+
+
+.status-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--foreground);
+  text-align: center;
+}
+
+.status-overlay.error h2 {
+  color: #ff6b6b;
+  /* Un color rojo para el error */
+}

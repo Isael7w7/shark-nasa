@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './Sidenav.css';
-// Puedes usar un icono SVG para el logo si lo deseas
+//logo png 
 // import { ReactComponent as SharkLogo } from '../../assets/shark-logo.svg';
 
 const Sidenav = () => {

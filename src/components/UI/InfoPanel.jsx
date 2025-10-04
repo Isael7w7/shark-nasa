@@ -6,12 +6,12 @@ import './InfoPanel.css';
 const InfoPanel = ({ sharkInfo }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // 1. LÓGICA DE COLAPSO (que faltaba)
+  // 1. LÓGICA DE COLAPSO 
   const togglePanel = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  // 2. MANEJO DEL ESTADO DE CARGA (que faltaba)
+  // 2. MANEJO DEL ESTADO DE CARGA 
   // Si no hay datos, mostramos un panel de carga y detenemos la ejecución aquí.
   if (!sharkInfo) {
     return (
@@ -23,8 +23,6 @@ const InfoPanel = ({ sharkInfo }) => {
     );
   }
 
-  // 3. JSX COMPLETO (que faltaba)
-  // Incluye la cabecera clickeable y el contenido dinámico.
   return (
     <div className={`info-panel ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="panel-header" onClick={togglePanel}>

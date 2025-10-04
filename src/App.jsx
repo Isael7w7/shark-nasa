@@ -1,14 +1,11 @@
-// src/App.jsx (MODIFICADO)
+// src/App.jsx (CÓDIGO COMPLETO)
 
 import React from 'react';
-import MainLayout from './layouts/MainLayout';
-import TrackerPage from './pages/TrackerPage';
+import SharkMapLayout from './layouts/SharkMapLayout.jsx';
 
 function App() {
   return (
-    <MainLayout>
-      <TrackerPage />
-    </MainLayout>
+    <SharkMapLayout />
   );
 }
 
