@@ -1,4 +1,4 @@
-/* src/components/UI/InfoPanel.css (VERSIÓN CORREGIDA Y LIMPIA) */
+/* src/components/UI/InfoPanel.css */
 
 .info-panel {
   position: absolute;
@@ -32,6 +32,14 @@
   background-color: rgba(60, 60, 80, 0.9);
 }
 
+/* --- REGLA AÑADIDA PARA EL ÍCONO --- */
+.panel-header img {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+}
+/* ---------------------------------- */
+
 .panel-header h2 {
   margin: 0;
   font-size: 1.1em;
@@ -40,15 +48,14 @@
   text-transform: uppercase;
 }
 
-/* --- CORRECCIÓN #1: REGLAS FUSIONADAS --- */
-/* Se han combinado las dos definiciones de .panel-content en una sola. */
 .panel-content {
   padding: 15px;
   max-height: 300px;
-  /* Un valor mayor a la altura real del contenido */
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
 }
+
+/* ... el resto de tu CSS permanece igual ... */
 
 .panel-content h3 {
   margin-top: 0;
@@ -78,10 +85,7 @@
   padding-bottom: 0;
 }
 
-/* --- Estilos para el indicador de colapso --- */
 .toggle-indicator {
-
-  /* display: flex en el padre ya se encarga de la posición. */
   background-color: rgba(97, 218, 251, 0.2);
   border: 1px solid rgba(97, 218, 251, 0.4);
   color: #cdebf5;
@@ -95,7 +99,6 @@
   justify-content: center;
   transition: transform 0.2s, background-color 0.2s;
   flex-shrink: 0;
-  /* Evita que el indicador se encoja si el título es muy largo */
 }
 
 .panel-header:hover .toggle-indicator {

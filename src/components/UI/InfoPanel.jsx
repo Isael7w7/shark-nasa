@@ -1,12 +1,14 @@
-// src/components/UI/InfoPanel.jsx (VERSIÓN FINAL Y COMPLETA)
+// src/components/UI/InfoPanel.jsx
 
 import React, { useState } from 'react';
 import './InfoPanel.css';
 
+// PASO 1: Importa la imagen aquí
+import gpsIcon from '../../assets/gps.png';
+
 const InfoPanel = ({ sharkInfo }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // 1. LÓGICA DE COLAPSO 
   const togglePanel = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -26,6 +28,10 @@ const InfoPanel = ({ sharkInfo }) => {
   return (
     <div className={`info-panel ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="panel-header" onClick={togglePanel}>
+
+        {/* PASO 2: Usa la variable importada aquí */}
+        <img src={gpsIcon} alt="rastreo" />
+
         <h2>RASTREO ACTIVO</h2>
         <div className="toggle-indicator">
           {isCollapsed ? '+' : '−'}

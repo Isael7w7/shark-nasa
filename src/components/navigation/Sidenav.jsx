@@ -9,8 +9,7 @@ const Sidenav = () => {
   return (
     <nav className="sidenav">
       <div className="sidenav-header">
-        {/* <SharkLogo className="logo" /> */}
-        <h1>Sharks from Space</h1>
+        <h1>Shark Traker</h1>
       </div>
       <ul className="sidenav-links">
         <li><a href="#" className="active">Dashboard de Rastreo</a></li>

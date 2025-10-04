@@ -4,8 +4,9 @@ import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
-import { useSmoothMovement } from '../../hooks/useSmoothMovement.jsx';
-import sharkIconPng from '../../assets/Shark-Free-Download-PNG.webp';
+import { useSmoothMovement } from '../../hooks/useSmoothMovement';
+// VERIFICA ESTA LÍNEA CUIDADOSAMENTE. EL NOMBRE DEL ARCHIVO DEBE SER EXACTO.
+import sharkIconPng from '../../assets/tiburon.png';
 
 // --- CAMBIO #1: CREAMOS DOS ICONOS, UNO NORMAL Y OTRO RESALTADO ---
 // Esto mejorará la UX al mostrar visualmente cuál tiburón está seleccionado.
