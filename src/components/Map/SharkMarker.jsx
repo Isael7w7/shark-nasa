@@ -6,7 +6,7 @@ import L from 'leaflet';
 
 import { useSmoothMovement } from '../../hooks/useSmoothMovement';
 // VERIFICA ESTA LÍNEA CUIDADOSAMENTE. EL NOMBRE DEL ARCHIVO DEBE SER EXACTO.
-import sharkIconPng from '../../assets/shark 2.png';
+import sharkIconPng from '../../assets/tiburon.png';
 
 const sharkIcon = new L.Icon({
   iconUrl: sharkIconPng,
