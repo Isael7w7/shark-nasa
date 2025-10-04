@@ -1,13 +1,11 @@
 // src/App.jsx
 
 import React from 'react';
-import SimpleLeafletMap from './components/Map/SimpleLeafletMap.jsx'; // Importa tu componente
+import TrackerPage from './pages/TrackerPage.jsx';
 
 function App() {
   return (
-    <div>
-      <SimpleLeafletMap />
-    </div>
+    <TrackerPage />
   );
 }
 
