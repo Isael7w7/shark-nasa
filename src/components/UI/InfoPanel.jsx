@@ -13,6 +13,8 @@ const InfoPanel = ({ sharkInfo }) => {
     setIsCollapsed(!isCollapsed);
   };
 
+  // 2. MANEJO DEL ESTADO DE CARGA 
+  // Si no hay datos, mostramos un panel de carga y detenemos la ejecución aquí.
   if (!sharkInfo) {
     return (
       <div className="info-panel">
@@ -26,7 +28,7 @@ const InfoPanel = ({ sharkInfo }) => {
   return (
     <div className={`info-panel ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="panel-header" onClick={togglePanel}>
-        
+
         {/* PASO 2: Usa la variable importada aquí */}
         <img src={gpsIcon} alt="rastreo" />
 
