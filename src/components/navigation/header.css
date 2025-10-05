@@ -1,5 +1,9 @@
 /* src/components/navigation/Header.css */
 
+/* ================================================= */
+/* 1. Estilos del Layout del Encabezado (Header) */
+/* ================================================= */
+
 .app-header {
   background-color: var(--card);
   border-bottom: 1px solid var(--border);
@@ -16,15 +20,21 @@
   gap: 1rem;
 }
 
+/* ================================================= */
+/* 2. Estilos de Contenedores y Texto */
+/* ================================================= */
+
 .logo-container {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+  /* IMPORTANTE: Añadido para asegurar que la imagen se centre */
+  overflow: hidden; 
 }
 
 .header-title {
@@ -49,11 +59,52 @@
   width: 250px;
 }
 
+/* ================================================= */
+/* 3. Estilos del Botón de Ícono y Foco */
+/* ================================================= */
+
 .icon-button {
-  background: none;
+  /* CAMBIOS CLAVE AQUÍ: Centrado y fondo para manejar el PNG */
+  background-color: var(--card); /* Usar el color del header para ocultar el fondo blanco del PNG */
   border: 1px solid var(--border);
   width: 40px;
   height: 40px;
   border-radius: 6px;
   cursor: pointer;
+  
+  /* Centrar el ícono dentro del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Evita el borde blanco que aparece al hacer clic (foco) */
+.icon-button:focus-visible {
+    outline: none; 
+    box-shadow: 0 0 0 2px var(--primary); /* Estilo de foco sutil (cambia el color si es necesario) */
+}
+
+/* ================================================= */
+/* 4. Estilos Individuales de Imágenes (IMG) */
+/* ================================================= */
+
+/* Estilos para el LOGO (usa la clase logo-image) */
+.logo-image {
+  /* Ocupa todo el contenedor de 40px */
+  width: 90%; 
+  height: 90%; 
+  
+  /* Asegura que la imagen se vea bien dentro del círculo */
+  object-fit: cover; 
+  border-radius: 50%; /* Si el logo es cuadrado, esto lo hace circular */
+}
+
+/* Estilos para el ÍCONO de Ubicación (usa la clase location-image) */
+.location-image {
+  /* Define un tamaño fijo más pequeño que el botón (40px) */
+  width: 50px; 
+  height: 35px;
+  
+  /* Asegura que la imagen se escale sin distorsión */
+  object-fit: contain; 
 }
