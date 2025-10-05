@@ -1,4 +1,4 @@
-const BASE_URL = 'https://72ee35158b5d.ngrok-free.app'
+const BASE_URL = 'http://localhost:5093'
 
 const endpoints = {
     sharks: {
@@ -6,7 +6,7 @@ const endpoints = {
     },
     tracking: {
         getBySharkId: (sharkId) => `${BASE_URL}/Tracking/shark/${sharkId}`,
-        predict: (sharkId, iterations = 1) => `${BASE_URL}/Tracking/shark/${sharkId}/predict?iterations=${iterations}`
+        predict: (sharkId, iterations = 20) => `${BASE_URL}/Tracking/shark/${sharkId}/predict?iterations=${iterations}`
     }
 }
 

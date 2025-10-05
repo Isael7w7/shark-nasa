@@ -105,3 +105,16 @@
   transform: scale(1.1);
   background-color: rgba(97, 218, 251, 0.4);
 }
+
+.notes-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(100, 100, 120, 0.3);
+}
+
+.notes-section p {
+  font-size: 0.85em;
+  color: #c0c0c0;
+  line-height: 1.4;
+  margin: 5px 0 0 0;
+}

@@ -1,4 +1,4 @@
-// src/layouts/SharkMapLayout.jsx (CÓDIGO COMPLETO)
+// src/layouts/SharkMapLayout.jsx (CÓDIGO COMPLETO CON PREDICCIONES)
 
 import React, { useState, useEffect } from 'react';
 import Header from '../components/navigation/header.jsx';
@@ -6,6 +6,7 @@ import Sidebar from '../components/navigation/Sidebar.jsx';
 import SharkMap from '../components/Map/SharkMap.jsx'; // Nuestro mapa de Leaflet
 import { sharkService } from '../services/sharkTrackerService.js';
 import './SharkMapLayout.css';
+
 // - #1: Definimos los posibles estados de carga ---
 const STATUS = {
   IDLE: 'idle', // Inactivo
@@ -17,10 +18,13 @@ const STATUS = {
 export default function SharkMapLayout() {
   const [sharks, setSharks] = useState([]);
   const [selectedSharkId, setSelectedSharkId] = useState(null);
+  const [predictionData, setPredictionData] = useState(null);
+  const [loadingPredictions, setLoadingPredictions] = useState(false);
 
   // --- #2: Creamos un nuevo estado para rastrear el estado de la petición ---
   const [loadingStatus, setLoadingStatus] = useState(STATUS.IDLE);
 
+  // Efecto para cargar los datos de los tiburones
   useEffect(() => {
     // Ponemos el estado en 'cargando' al inicio
     setLoadingStatus(STATUS.LOADING);
@@ -32,7 +36,13 @@ export default function SharkMapLayout() {
         setSharks(allSharksData);
         setLoadingStatus(STATUS.SUCCESS); // Marcamos como éxito
         if (!selectedSharkId && allSharksData.length > 0) {
-          setSelectedSharkId(allSharksData[0].id);
+          // Por defecto seleccionamos el tiburón con ID 3 (Bruce)
+          const bruce = allSharksData.find(s => s.id === 3);
+          if (bruce) {
+            setSelectedSharkId(3);
+          } else {
+            setSelectedSharkId(allSharksData[0].id);
+          }
         }
       },
       (error) => { // Callback de error (necesitaremos añadir esto al servicio)
@@ -41,7 +51,30 @@ export default function SharkMapLayout() {
       }
     );
     return unsubscribe;
+  }, []);
+
+  // Efecto para cargar las predicciones cuando se selecciona el tiburón ID 3
+  useEffect(() => {
+    if (selectedSharkId === 3) {
+      loadPredictions(3);
+    } else {
+      setPredictionData(null);
+    }
   }, [selectedSharkId]);
+
+  const loadPredictions = async (sharkId) => {
+    setLoadingPredictions(true);
+    try {
+      const data = await sharkService.getPredictions(sharkId, 20);
+      setPredictionData(data);
+      console.log("Datos de predicción cargados:", data);
+    } catch (error) {
+      console.error("Error cargando predicciones:", error);
+      setPredictionData(null);
+    } finally {
+      setLoadingPredictions(false);
+    }
+  };
 
   const handleSelectShark = (id) => {
     setSelectedSharkId(id);
@@ -77,7 +110,14 @@ export default function SharkMapLayout() {
               sharks={sharks} // Estará vacío si hubo un error, pero el mapa se renderizará
               selectedSharkId={selectedSharkId}
               onSelectShark={handleSelectShark}
+              predictionData={predictionData}
             />
+          )}
+
+          {loadingPredictions && (
+            <div className="prediction-loader">
+              Cargando predicciones...
+            </div>
           )}
         </main>
       </div>

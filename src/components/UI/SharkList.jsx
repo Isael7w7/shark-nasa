@@ -14,11 +14,21 @@ export default function SharkList({ sharks, onSelectShark, selectedSharkId }) {
           onClick={() => onSelectShark(shark.id)}
         >
           <div className="list-item-header">
-            <h3 className="list-item-title">{shark.name} #{shark.id.split('-')[1]}</h3>
-            <span className="badge">{shark.state}</span>
+            <h3 className="list-item-title">{shark.name} #{shark.id}</h3>
+            <span className="badge">{shark.speciesName || 'Desconocido'}</span>
           </div>
-          <p className="list-item-muted">Velocidad: {shark.speed.toFixed(1)} nudos</p>
-          <p className="list-item-muted">Profundidad: -{shark.depth}m</p>
+          <p className="list-item-muted">
+            Especie: {shark.scientificName || 'N/A'}
+          </p>
+          <p className="list-item-muted">
+            Longitud: {shark.length ? `${shark.length.toFixed(1)}m` : 'N/A'}
+          </p>
+          <p className="list-item-muted">
+            Peso: {shark.weight ? `${shark.weight.toFixed(0)}kg` : 'N/A'}
+          </p>
+          <p className="list-item-muted">
+            Puntos de tracking: {shark.totalTrackingPoints || 0}
+          </p>
         </div>
       ))}
     </div>

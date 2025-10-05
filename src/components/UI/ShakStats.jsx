@@ -1,13 +1,17 @@
-
-
 import React from 'react';
 import './Card.css'; // 
 
 export default function SharkStats({ sharks }) {
+  // Obtenemos especies únicas
+  const uniqueSpecies = new Set(sharks.map(s => s.speciesName).filter(Boolean));
+
+  // Calculamos el total de puntos de tracking
+  const totalTrackingPoints = sharks.reduce((sum, shark) => sum + (shark.totalTrackingPoints || 0), 0);
+
   const stats = [
     { label: "Tiburones rastreados", value: sharks.length, change: "Activos" },
-    { label: "Navegando", value: sharks.filter(s => s.state === 'Navegando').length, change: "" },
-    { label: "Forrajeando", value: sharks.filter(s => s.state === 'Forrajeando').length, change: "" },
+    { label: "Especies diferentes", value: uniqueSpecies.size, change: "" },
+    { label: "Puntos de tracking", value: totalTrackingPoints, change: "" },
   ];
 
   return (
