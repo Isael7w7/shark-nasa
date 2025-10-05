@@ -1,18 +1,25 @@
-# React + Vite
+# 🦈 SharkTracker: Sharks Tracking and Prediction System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project implements a comprehensive system to track the real-time location of sharks and predict their future movements using an Artificial Intelligence (AI) model. The solution is divided into *frontend* (user interface) and *backend* (system logic and AI) components that communicate with each other.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Real-Time Tracking:** Interactive map visualization (React/Leaflet) of the sharks' current location.
+* **AI Prediction:** Utilizes a *Machine Learning* model to estimate the future trajectory of the sharks.
+* **Distributed Architecture:** The project is split into multiple repositories for modular management of the client, system logic, and the AI model.
 
-## React Compiler
+## 🏗️ Project Architecture
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+The system consists of three main repositories:
 
-Note: This will impact Vite dev & build performances.
+| Component | Description | Repository |
+| :--- | :--- | :--- |
+| **Frontend (Client)** | User interface built with **React** and **Leaflet** to display the map and the tracking/prediction visualizations. | `https://github.com/RaulBecerraB/sharks-challenge-client` |
+| **Main Backend** | Server that manages the communication between the client, the database, and the AI model. | `https://github.com/RaulBecerraB/sharks_AI` |
+| **AI Model** | Contains the code, data, and logic for training and executing the movement prediction model. (Based on the original work from the NASA-Space challenge). | `https://github.com/DanielEspinosaChim/NASA-Space` |
 
-## Expanding the ESLint configuration
+## 🛠️ Installation and Execution
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run the complete system, you need to clone and configure all three repositories. Follow the specific `Installation` and `Execution` instructions in each project's README.
+
+**Note:** It is crucial that the **Main Backend** (`sharks_AI`) is configured to interact correctly with both the **Frontend** (`sharks-challenge-client`) and to consume or communicate with the **AI Model** (`NASA-Space`).
