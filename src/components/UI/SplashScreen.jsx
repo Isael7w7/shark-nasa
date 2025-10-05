@@ -1,20 +1,26 @@
-// src/components/UI/SplashScreen.jsx
+// src/components/UI/SplashScreen.jsx (ORDEN CORREGIDO)
 
 import React from 'react';
 import './SplashScreen.css';
+import logo from '../../../public//logo.png'; 
 
-// Asegúrate de que la ruta a tu logo sea correcta
-import logo from '../../../public//logo.png'; // Usando la imagen que subiste
+const SplashScreen = ({ isFadingOut }) => { 
+  const splashClassName = `splash-screen ${isFadingOut ? 'fading-out' : ''}`;
 
-const SplashScreen = ({ isFading }) => {
-  // Añadimos la clase 'fading-out' cuando la prop isFading sea true
-  const splashClassName = `splash-screen ${isFading ? 'fading-out' : ''}`;
-
-  return (
-    <div className={splashClassName}>
-      <img src={logo} alt="Shark Tracker Logo" className="splash-logo" />
-    </div>
-  );
+  return (
+    <div className={splashClassName}>
+      
+      {/* 1. TÍTULO: Sale primero (arriba) */}
+      <h1 className="splash-title">Shark Tracker</h1> 
+      
+      {/* 2. LOGO: Sale segundo (centro) */}
+      <img src={logo} alt="Shark Tracker Logo" className="splash-logo" />
+      
+      {/* 3. TEXTO DE BIENVENIDA: Sale tercero (abajo) */}
+      <p className="splash-welcome-text">Bienvenidos</p>
+      
+    </div>
+  );
 };
 
 export default SplashScreen;

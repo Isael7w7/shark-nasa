@@ -7,18 +7,18 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999; /* Asegura que esté por encima de todo */
-
+  z-index: 9999;
   /* Estilos de centrado y fondo */
-  background-color: #001d47; /* Un color de fondo, puedes usar el de tu logo */
+  background-color: #001d47; 
   display: flex;
+  /* ¡CLAVE DE LA SOLUCIÓN! Apila los elementos verticalmente */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
   /* --- La Magia del Desvanecimiento --- */
   opacity: 1;
   visibility: visible;
-  transition: opacity 2s ease-out, visibility 7s ease-out;
+  Transition: opacity 2s ease-out, visibility 7s ease-out;
 }
 
 /* Clase que se añade para activar el desvanecimiento */
@@ -30,7 +30,28 @@
 .splash-logo {
   max-width: 300px; /* Ajusta el tamaño de tu logo */
   width: 80%;
+   margin-top: 0; 
+   margin-bottom: 0;
   animation: pulse 1.5s infinite ease-in-out;
+}
+.splash-title {
+    font-size: 3rem; 
+    font-weight: 700;
+    /* Usa el color de texto principal del tema (ej. blanco) */
+    color: var(--foreground, #ffffff); 
+    /* Margen para separar el título del logo (que está debajo) */
+    margin: 0 0 10px 0; 
+    text-align: center;
+}
+
+.splash-welcome-text {
+    font-size: 1.25rem;
+    font-weight: 400;
+    /* Usa un color sutil (ej. gris secundario) */
+    color: var(--muted-foreground, #cccccc); 
+    /* Margen para separar el texto del logo (que está arriba) */
+    margin-top: 15px; 
+    text-align: center;
 }
 
 /* Animación sutil para el logo (opcional) */

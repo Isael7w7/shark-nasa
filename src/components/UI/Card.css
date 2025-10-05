@@ -1,60 +1,88 @@
 /* src/components/UI/Card.css */
 
+/* ================================================= */
+/* Título de la Sección de Estadísticas */
+/* ================================================= */
+
 .sidebar-heading {
-  font-size: 0.875rem;
+  font-size: 1.1rem; /* Aumentamos ligeramente el tamaño del título de la sección */
   font-weight: 600;
   color: var(--foreground);
   margin-bottom: 0.75rem;
 }
 
+/* ================================================= */
+/* Tarjeta Base (Clase .card) */
+/* ================================================= */
+
 .card {
   background-color: var(--card);
-  border: 1px solid var(--border);
+  /* MODIFICACIÓN CLAVE: Borde más grueso (de 1px a 3px) */
+  border: 3px solid var(--border); 
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 0.75rem;
+  /* Añadimos una sombra sutil para darle profundidad */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* --- Estilos para SharkStats --- */
+/* ================================================= */
+/* Estilos para SharkStats (Contenido de la Tarjeta) */
+/* ================================================= */
+
 .stat-content {
   display: flex;
-  align-items: center;
+  /* Alineamos a flex-start para que el valor y el label no se estiren */
+  align-items: flex-start; 
   justify-content: space-between;
 }
 
 .stat-value {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2.2rem; /* Aumentamos para darle más impacto */
+  font-weight: 700; /* Hacemos el número más audaz */
   color: var(--foreground);
   margin: 0;
+  line-height: 1; /* Eliminamos el espacio innecesario */
 }
 
 .stat-label {
-  font-size: 0.75rem;
+  font-size: 0.9rem; /* Aumentamos ligeramente para mejorar legibilidad */
   color: var(--muted-foreground);
   margin-top: 0.25rem;
 }
 
 .stat-change {
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary);
+  /* Estilo de la etiqueta "Activos" */
+  background-color: hsla(188, 70%, 50%, 0.15); 
+  border: 1px solid var(--primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  align-self: flex-end; /* Asegura que se alinee con el borde inferior del label */
+  white-space: nowrap;
 }
 
-/* --- Estilos para SharkList --- */
+/* ================================================= */
+/* Estilos para SharkList */
+/* ================================================= */
+
 .list-item {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .list-item:hover {
+  /* Al pasar el ratón, el borde se resalta con el color primario */
   border-color: var(--primary);
-  box-shadow: 0 0 10px rgba(var(--primary), 0.3);
+  box-shadow: 0 0 10px hsla(188, 70%, 50%, 0.3); /* Usamos HSLA para la sombra */
 }
 
 .list-item.selected {
   border-color: var(--primary);
-  background-color: hsl(240, 10%, 15%);
+  /* Usamos un color oscuro basado en el tema marino */
+  background-color: hsl(210, 15%, 15%); 
 }
 
 .list-item-header {

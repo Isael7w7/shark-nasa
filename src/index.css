@@ -1,25 +1,34 @@
 :root {
-  --background: hsl(240, 10%, 4%);
-  /* Fondo principal muy oscuro */
-  --foreground: hsl(240, 5%, 95%);
-  /* Texto principal claro */
-  --card: hsl(240, 10%, 10%);
-  /* Fondo de las tarjetas y cabecera */
-  --primary: hsl(200, 90%, 55%);
-  /* Color de acento principal (azul brillante) */
-  --primary-foreground: hsl(240, 10%, 4%);
-  /* Texto sobre el color primario */
-  --border: hsl(240, 5%, 20%);
-  /* Bordes sutiles */
-  --muted-foreground: hsl(240, 5%, 65%);
-  /* Texto secundario (gris claro) */
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* ------------------------------------------------ */
+  /* Colores Base (Aguas Profundas) */
+  /* ------------------------------------------------ */
+  --background: hsl(210, 15%, 8%); /* Azul muy oscuro, casi negro, para la profundidad */
+    --card: hsl(210, 20%, 15%);       /* Azul carbón oscuro para paneles y tarjetas */
+  --border: hsl(0, 0%, 45%);   /* Borde gris azulado sutil */
+  
+  /* ------------------------------------------------ */
+  /* Colores de Contraste y Acciones (Luz Submarina) */
+  /* ------------------------------------------------ */
+  --foreground: hsl(210, 20%, 95%); /* Texto principal blanco azulado */
+  --muted-foreground: hsl(210, 8%, 65%); /* Texto secundario gris claro */
+  
+  --primary: hsl(188, 70%, 50%);  /* Azul Cian del Océano (Acento Principal) */
+  --primary-dark: hsl(188, 70%, 40%); /* Versión oscura para hover */
+  --primary-foreground: hsl(210, 15%, 8%); /* Texto oscuro sobre el acento primario */
+  
+  /* ------------------------------------------------ */
+  /* Colores de Alerta/Info (Opcional) */
+  /* ------------------------------------------------ */
+  --danger: hsl(350, 70%, 50%);   /* Rojo para alertas críticas */
+  --success: hsl(120, 40%, 40%);  /* Verde para datos de salud/actividad */
+
+  font-family: Open Sans, sans-serif !important; 
+  line-height: 1.6; /* Aumenta la legibilidad */
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark;
+  color: var(--foreground);
+  background-color: var(--background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,82 +36,76 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ================================================= */
+/* Estilos Globales (Body y Tipografía) */
+/* ================================================= */
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Usamos la fuente definida en :root */
+  font-family: 'Inter', sans-serif; 
 }
+
+h1, h2, h3 {
+  /* Hacemos los títulos ligeramente más brillantes o de un color acentuado */
+  color: var(--foreground);
+  font-weight: 600; /* Un poco más de peso */
+  line-height: 1.2;
+}
+
+/* ================================================= */
+/* Enlaces y Botones (Acciones y Feedback) */
+/* ================================================= */
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--primary); /* Enlaces del color cian */
+  text-decoration: none;
+  transition: color 0.25s;
 }
 
 a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  color: var(--primary-dark); /* Enlaces más oscuros al pasar el ratón */
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 4px solid var(--primary); /* Borde acentuado */
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary); /* Fondo del color cian */
+  color: var(--primary-foreground); /* Texto oscuro sobre el botón cian */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  background-color: var(--primary-dark); /* Botón más oscuro al pasar el ratón */
+  border-color: var(--primary-dark);
 }
 
-button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /* Feedback de enfoque sutil */
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+/* ================================================= */
+/* Marcadores del Mapa (Toque de Rastreo) */
+/* ================================================= */
 
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* src/index.css (AÑADIR AL FINAL) */
-
-/* Estilo para el icono seleccionado */
+/* Efecto de brillo para simular un radar o un beacon activo */
 .shark-marker-selected {
-  filter: drop-shadow(0 0 10px #61dafb) brightness(1.2);
-  /* Efecto de brillo azulado */
+  filter: drop-shadow(0 0 8px var(--primary)) brightness(1.2); 
   transition: filter 0.3s ease-in-out;
 }
 
-/* Estilo para el icono por defecto */
 .shark-marker-default {
+  filter: drop-shadow(0 0 3px var(--primary)); /* Sutil brillo para el estado normal */
+  opacity: 0.8;
   transition: filter 0.3s ease-in-out;
 }

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './InfoPanel.css';
 
 // PASO 1: Importa la imagen aquí
-import gpsIcon from '../../assets/gps.png';
+import gpsIcon from '../../assets/track.png';
 
 const InfoPanel = ({ sharkInfo }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);

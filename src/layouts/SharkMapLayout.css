@@ -55,6 +55,14 @@
   z-index: 1000;
   animation: fadeInOut 1.5s infinite;
 }
+.error-icon {
+    width: 120px; /* Tamaño del ícono */
+    height: auto;
+    /* Espacio entre el ícono y el título "Error de Conexión" */
+    margin-bottom: 25px; 
+    /* Opcional: Dale un pequeño resplandor rojo */
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
+}
 
 @keyframes fadeInOut {
   0%, 100% {
